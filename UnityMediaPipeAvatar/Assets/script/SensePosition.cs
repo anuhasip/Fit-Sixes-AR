@@ -6,10 +6,12 @@ public class SensePosition : MonoBehaviour
 {
     // Start is called before the first frame update
     private string name = "";
+    public GameObject Red;
     void Start()
     {
         name = this.gameObject.name;
         Debug.Log(name);
+        Red = GameObject.FindGameObjectWithTag("Birds").gameObject.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class SensePosition : MonoBehaviour
             if (pos.y > -3.5f && pos.y < -3f)
             {
                 Debug.Log("Animation 01");
+                Red.gameObject.GetComponent<Animator>().SetTrigger("action01");
             }
         }
         else if (name == "Character1_RightHand")
